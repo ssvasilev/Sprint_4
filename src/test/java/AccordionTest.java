@@ -52,7 +52,7 @@ public AccordionTest(int number, String text){
         PajeObjectAccordion objMainPage = new PajeObjectAccordion(driver);
         //Клик по панели аккордиона
         objMainPage.clickAccordionButton(number);
-        //Получение текста из панели
+        //Получение текста из панели аккордиона
         String realtext = objMainPage.getAccordionPanelText(number);
         //Проверь, что текст строки соответствует образцу
         assertThat(realtext, equalTo(text));

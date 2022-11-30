@@ -18,7 +18,7 @@ public class PajeObjectAccordion {
         driver.findElement(By.id("accordion__heading-" + num)).click(); //Нажми на элемент
     }
 
-    //Метод получения текста из панели
+    //Метод получения текста из панели аккордиона
     public String getAccordionPanelText(int num) {
         WebElement element = driver.findElement(By.id("accordion__panel-" + num));
         return element.getAttribute("innerText");

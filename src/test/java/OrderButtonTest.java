@@ -86,7 +86,7 @@ public class OrderButtonTest {
         objMainPage.setField1(nameSet, familySet, adressSet, metroSet, phoneSet,dateSet, timeSet, colorSet, commentSet);
         //Нажимаем на кнопку "Заказать" в форме заказа
         objMainPage.orderButtonOrder();
-        //Ожидаем появление окна подтверждения
+        //Ожидаем появление окна подтверждения заказа
         objMainPage.OrderPopupIsEnabled();
     }
 

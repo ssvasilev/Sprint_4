@@ -80,7 +80,7 @@ public class PageObjectOrder {
         driver.findElement(date).sendKeys(dateSet); //Введи дату
         driver.findElement(timeSelect).click(); //Кликни по стрелке выбора срока аренды
         driver.findElement(By.xpath(".//div[@class = 'Dropdown-menu']/div[" + timeSet +"]")).click(); //Выбор времени аренды
-        driver.findElement(By.id(colorSet)).click(); //Введи цвет
+        driver.findElement(By.id(colorSet)).click(); //Введи цвет самоката
         driver.findElement(comment).sendKeys(commentSet); //Введи комментарий
     }
 
