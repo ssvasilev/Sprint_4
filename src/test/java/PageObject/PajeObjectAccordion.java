@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 public class PajeObjectAccordion {
     private WebDriver driver;
 
-
     //Метод клика по панели
     public void clickAccordionButton(int num) {
         WebElement element = driver.findElement(By.id("accordion__heading-" + num)); //Найди элемент

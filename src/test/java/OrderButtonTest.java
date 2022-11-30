@@ -69,7 +69,6 @@ public class OrderButtonTest {
         //Ожидаем появление окна подтверждения
         objMainPage.OrderPopupIsEnabled();
     }
-
     @Test
     public void OrderTest2Run() {
         // создаём драйвер для браузера Chrome

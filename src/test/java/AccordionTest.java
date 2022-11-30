@@ -37,7 +37,6 @@ public AccordionTest(int number, String text){
                 {7,"Да, обязательно. Всем самокатов! И Москве, и Московской области."},
         };
     }
-
     private WebDriver driver;
 
     @Test
