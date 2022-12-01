@@ -1,5 +1,6 @@
-import PageObject.PageObjectOrder;
+import pageObject.MainPage;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -50,43 +51,41 @@ public class OrderButtonTest {
 
     private WebDriver driver;
 
-    @Test
-    public void OrderTest1Run() {
+    @Before
+    public void initialize() {
         // создаём драйвер для браузера Chrome
         ChromeOptions options = new ChromeOptions();
         //options.addArguments("--no-sandbox", "--headless", "--disable-dev-shm-usage");
         driver = new ChromeDriver(options);
         // переходим на страницу тестового приложения
         driver.get("https://qa-scooter.praktikum-services.ru/");
+    }
+
+    @Test
+    public void OrderTest1Run() {
         //создай объект класса
-        PageObjectOrder objMainPage = new PageObjectOrder(driver);
+        MainPage mainPage = new MainPage(driver);
         //Нажми на кнопку заказать
-        objMainPage.orderButton1Click();
+        mainPage.orderHeadButtonClick();
         //Заполняем поля на страницах заказа
-        objMainPage.setField1(nameSet, familySet, adressSet, metroSet, phoneSet,dateSet, timeSet, colorSet, commentSet);
-        //Нажимаем на кнопку "Заказать" в форме заказа
-        objMainPage.orderButtonOrder();
+        mainPage.setField1(nameSet, familySet, adressSet, metroSet, phoneSet,dateSet, timeSet, colorSet, commentSet);
+        //Нажимаем на кнопСашаку "Заказать" в форме заказа
+        mainPage.orderMiddleButtonClick();
         //Ожидаем появление окна подтверждения
-        objMainPage.OrderPopupIsEnabled();
+        mainPage.OrderPopupIsEnabled();
     }
     @Test
     public void OrderTest2Run() {
-        // создаём драйвер для браузера Chrome
-        ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--no-sandbox", "--headless", "--disable-dev-shm-usage");
-        driver = new ChromeDriver(options);
-        // переходим на страницу тестового приложения
-        driver.get("https://qa-scooter.praktikum-services.ru/");
         //создай объект класса
-        PageObjectOrder objMainPage = new PageObjectOrder(driver);
+        MainPage mainPage = new MainPage(driver);
         //Нажми на кнопку заказать
-        objMainPage.orderButton2Click();
+        mainPage.orderMiddleButtonClick();
         //Заполняем поля на страницах заказа
-        objMainPage.setField1(nameSet, familySet, adressSet, metroSet, phoneSet,dateSet, timeSet, colorSet, commentSet);
+        mainPage.setField1(nameSet, familySet, adressSet, metroSet, phoneSet,dateSet, timeSet, colorSet, commentSet);
         //Нажимаем на кнопку "Заказать" в форме заказа
-        objMainPage.orderButtonOrder();
+        mainPage.orderMiddleButtonClick();
         //Ожидаем появление окна подтверждения заказа
-        objMainPage.OrderPopupIsEnabled();
+        mainPage.OrderPopupIsEnabled();
     }
 
     @After
