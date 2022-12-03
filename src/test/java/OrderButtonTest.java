@@ -1,4 +1,5 @@
 import pageObject.MainPage;
+import pageObject.OrderPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,6 +8,7 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
 
 @RunWith(Parameterized.class)
 public class OrderButtonTest {
@@ -68,11 +70,13 @@ public class OrderButtonTest {
         //Нажми на кнопку заказать
         mainPage.orderHeadButtonClick();
         //Заполняем поля на страницах заказа
-        mainPage.setField1(nameSet, familySet, adressSet, metroSet, phoneSet,dateSet, timeSet, colorSet, commentSet);
-        //Нажимаем на кнопСашаку "Заказать" в форме заказа
-        mainPage.orderMiddleButtonClick();
+        //Создай объект класса "заказ"
+        OrderPage orderPage = new OrderPage(driver);
+        orderPage.setFieldOrder(nameSet, familySet, adressSet, metroSet, phoneSet,dateSet, timeSet, colorSet, commentSet);
+        //Нажимаем на кнопку "Заказать" в форме заказа
+        orderPage.clickNextStepOrder();
         //Ожидаем появление окна подтверждения
-        mainPage.OrderPopupIsEnabled();
+        orderPage.OrderPopupIsEnabled();
     }
     @Test
     public void OrderTest2Run() {
@@ -81,11 +85,13 @@ public class OrderButtonTest {
         //Нажми на кнопку заказать
         mainPage.orderMiddleButtonClick();
         //Заполняем поля на страницах заказа
-        mainPage.setField1(nameSet, familySet, adressSet, metroSet, phoneSet,dateSet, timeSet, colorSet, commentSet);
+        //Создай объект класса "заказ"
+        OrderPage orderPage = new OrderPage(driver);
+        orderPage.setFieldOrder(nameSet, familySet, adressSet, metroSet, phoneSet,dateSet, timeSet, colorSet, commentSet);
         //Нажимаем на кнопку "Заказать" в форме заказа
-        mainPage.orderMiddleButtonClick();
+        orderPage.clickNextStepOrder();
         //Ожидаем появление окна подтверждения заказа
-        mainPage.OrderPopupIsEnabled();
+        orderPage.OrderPopupIsEnabled();
     }
 
     @After
